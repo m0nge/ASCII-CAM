@@ -7,7 +7,7 @@ const CHARSETS = [
 ];
 
 // ── estado ──
-let currentCharset = CHARSETS[0];
+let currentCharset = CHARSETS[2];
 let stream        = null;
 let animId        = null;
 let inverted      = false;
