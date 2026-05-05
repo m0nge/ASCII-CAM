@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASCII CAM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <div id="ascii-wrapper">
+      <pre id="ascii-output"></pre>
+    </div>
+
+    <div id="overlay-ui">
+      <div id="header">[ ASCII CAM ]</div>
+
+      <div id="bottom-ui">
+        <div id="status"></div>
+
+        <div id="controls">
+          <button id="btn-start" onclick="startCamera()">▶ iniciar</button>
+          <button id="btn-stop" class="hidden" onclick="stopCamera()">■ detener</button>
+          <button id="btn-snapshot" class="hidden" onclick="takeSnapshot()">◉ foto</button>
+        </div>
+
+        <div id="settings">
+          <label>
+            color
+            <select id="color-select" onchange="changeColor()">
+              <option value="#00ff41">matrix</option>
+              <option value="#ffffff">blanco</option>
+              <option value="#ff6b35">naranja</option>
+              <option value="#00bfff">cyan</option>
+              <option value="#ff2d78">rosa</option>
+              <option value="#ffd700">dorado</option>
+            </select>
+          </label>
+
+          <label>
+            modo
+            <select id="charset-select" onchange="changeCharset()">
+              <option value="0">denso</option>
+              <option value="1">bloques</option>
+              <option value="2">numérico</option>
+              <option value="3">minimal</option>
+            </select>
+          </label>
+
+          <label>
+            invertir
+            <input type="checkbox" id="invert-check" onchange="invertToggle()" />
+          </label>
+
+          <label>
+            res <span id="res-val">6</span>
+            <input type="range" id="res-range" min="2" max="14" value="6" step="1"
+              oninput="changeRes(this.value)" />
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <video id="hidden-video" autoplay playsinline muted></video>
+  <canvas id="hidden-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

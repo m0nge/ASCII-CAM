@@ -1,0 +1,194 @@
+/* ── reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ── contenedor principal ── */
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+/* ── área ascii ── */
+#ascii-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: #000;
+}
+
+#ascii-output {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 5px;
+  line-height: 1.1;
+  letter-spacing: 1.2px;
+  white-space: pre;
+  color: #00ff41;
+  display: block;
+  /* se recalcula desde JS para llenar exacto */
+}
+
+/* ── overlay UI encima del ascii ── */
+#overlay-ui {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;          /* clicks pasan al ascii */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 14px;
+  z-index: 10;
+}
+
+#header {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: rgba(0, 255, 65, 0.5);
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ── panel inferior ── */
+#bottom-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: all;           /* este sí recibe clicks */
+}
+
+#status {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(0, 255, 65, 0.55);
+  min-height: 14px;
+}
+
+/* ── botones ── */
+#controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 255, 65, 0.45);
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+button:hover {
+  background: rgba(0, 255, 65, 0.15);
+  border-color: #00ff41;
+}
+
+button.hidden {
+  display: none;
+}
+
+/* ── settings ── */
+#settings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 6px;
+}
+
+#settings label {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: rgba(0, 255, 65, 0.7);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  border-radius: 4px;
+  padding: 5px 10px;
+  backdrop-filter: blur(4px);
+}
+
+select {
+  background: #000;
+  border: 1px solid rgba(0, 255, 65, 0.4);
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  accent-color: #00ff41;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  accent-color: #00ff41;
+  width: 70px;
+  cursor: pointer;
+}
+
+#res-val {
+  min-width: 12px;
+  text-align: right;
+}
+
+/* ── elementos ocultos ── */
+#hidden-video,
+#hidden-canvas {
+  display: none;
+}
+
+/* ── responsive: móvil ── */
+@media (max-width: 600px) {
+  #header {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  button {
+    font-size: 10px;
+    padding: 5px 12px;
+  }
+
+  #settings label {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+
+  input[type="range"] {
+    width: 55px;
+  }
+}
