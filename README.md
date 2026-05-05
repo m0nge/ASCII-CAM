@@ -2,11 +2,6 @@
 
 Convierte tu cámara frontal en arte ASCII en tiempo real, directo en el navegador — sin frameworks, sin dependencias.
 
-![preview](https://img.shields.io/badge/HTML-CSS-JS-00ff41?style=flat&labelColor=000)
-
-## Demo
-
-Abrí `index.html` en tu navegador o deployá en GitHub Pages / Netlify.
 
 ## Características
 
