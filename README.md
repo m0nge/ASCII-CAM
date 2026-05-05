@@ -38,12 +38,6 @@ ascii-cam/
 
 Cada frame del video se dibuja en un `<canvas>` oculto. Se lee el valor de brillo de cada bloque de píxeles con `getImageData()` y ese brillo se mapea a un carácter de la paleta elegida. El resultado se imprime como texto `<pre>` sobre fondo negro.
 
-## Deploy en GitHub Pages
-
-1. Subí el repositorio a GitHub
-2. Ir a **Settings → Pages**
-3. Source: `main` branch, carpeta `/root`
-4. Listo — tu cam ASCII queda en `https://tu-usuario.github.io/ascii-cam`
 
 ## Tecnologías
 
@@ -51,4 +45,3 @@ Cada frame del video se dibuja en un `<canvas>` oculto. Se lee el valor de brill
 
 ---
 
-Hecho con ☕ y caracteres raros
