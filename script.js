@@ -196,3 +196,5 @@ function changeRes(val) {
 window.addEventListener('resize', () => {
   if (stream) renderFrame();
 });
+
+changeCharset();
